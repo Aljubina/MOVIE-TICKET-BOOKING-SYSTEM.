@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Book - Explore All Movies</title>
+    <style>
+        /* General Reset and Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light background for the overall scene */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container for the main screen content */
+        .desktop-container {
+            width: 80%;
+            max-width: 1200px;
+            margin-top: 50px;
+            background-color: white; /* Simulating the screen background */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 0;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            margin-left: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-buttons button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .login-register {
+            background-color: transparent;
+            color: #333;
+            border: 1px solid #ccc !important;
+        }
+
+        .view-movies {
+            background-color: #007bff; /* Blue button */
+            color: white;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            padding: 40px 60px; /* Padding inside the screen area */
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        /* Section Title (e.g., DUNE ME: PART TWO) */
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Movie Grid Layout */
+        .movie-grid {
+            display: grid;
+            /* Creates 4 equal columns with spacing */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 30px; /* Spacing between movies */
+            margin-bottom: 40px;
+        }
+
+        /* Individual Movie Item Styling */
+        .movie-item {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+
+        .poster-container {
+            position: relative;
+            width: 100%;
+            /* Maintain poster aspect ratio (approx 2:3) */
+            padding-top: 150%; 
+            margin-bottom: 10px;
+            overflow: hidden;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .poster-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .movie-item:hover .poster-container img {
+            transform: scale(1.05); /* Subtle zoom on hover */
+        }
+
+        .movie-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 5px 0 2px 0;
+        }
+
+        .movie-details {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+            /* Layout for details and arrow */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .details-text {
+            flex-grow: 1;
+        }
+
+        .details-arrow {
+            color: #007bff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="desktop-container">
+
+        <header class="header">
+            <div class="logo">
+                📚 <span class="logo-text">CINEMA BOOK</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="login-register">Login / Register</button>
+                <button class="view-movies">View Movies</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <h1 class="page-title">EXPLORE ALL MOVIES</h1>
+
+            <h2 class="section-title">DUNE ME: PART TWO</h2>
+
+            <div class="movie-grid">
+
+                <a href="#" class="movie-item">
+                    <div class="poster-container">
+                        <img src="https://via.placeholder.com/300x450/3498db/FFFFFF?text=DUNE+2" alt="Dune Movie Poster">
+                    </div>
+                    <p class="movie-title">DUNE</p>
+                    <div class="movie-details">
+                        <span class="details-text">
+                            Action, English, Hindi<br>
+                            155 min.<br>
+                            Release Date: Maritt 3, 2024
+                        </span>
+                        <span class="details-arrow">&gt;</span>
+                    </div>
+                </a>
+
+                <a href="#" class="movie-item">
+                    <div class="poster-container">
+                        <img src="https://via.placeholder.com/300x450/e91e63/FFFFFF?text=BARBIE" alt="Barbie Movie Poster">
+                    </div>
+                    <p class="movie-title">BARBIE</p>
+                    <div class="movie-details">
+                        <span class="details-text">
+                            Comedy, English<br>
+                            114 min.<br>
+                            Release Date: July 21, 2023
+                        </span>
+                        <span class="details-arrow">&gt;</span>
+                    </div>
+                </a>
+
+                <a href="#" class="movie-item">
+                    <div class="poster-container">
+                        <img src="https://via.placeholder.com/300x450/e74c3c/FFFFFF?text=SPIDER+MAN" alt="Spider-Man Movie Poster">
+                    </div>
+                    <p class="movie-title">BARBIE</p>
+                    <div class="movie-details">
+                        <span class="details-text">
+                            Action, English<br>
+                            148 min.<br>
+                            Release Date: July 21, 2023
+                        </span>
+                        <span class="details-arrow">&gt;</span>
+                    </div>
+                </a>
+
+                <a href="#" class="movie-item">
+                    <div class="poster-container">
+                        <img src="https://via.placeholder.com/300x450/333333/FFFFFF?text=OPPENHIMER" alt="Oppenheimer Movie Poster">
+                    </div>
+                    <p class="movie-title">BARBIE</p>
+                    <div class="movie-details">
+                        <span class="details-text">
+                            Drama, English<br>
+                            116 min.<br>
+                            Release Date: July 21, 2023
+                        </span>
+                        <span class="details-arrow">&gt;</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="movie-grid">
+
+                <a href="#" class="movie-item">
+                    <div class="poster-container">
+                        <img src="https://via.placeholder.com/300x450/00bcd4/FFFFFF?text=LITTLE+MERMAID" alt="Little Mermaid Movie Poster">
+                    </div>
+                    <p class="movie-title">LITTLE MERMAID</p>
+                    </a>
+
+                <a href="#" class="movie-item">
+                    <div class="poster-container">
+                        <img src="https://via.placeholder.com/300x450/e74c3c/FFFFFF?text=SPIDER+MAN" alt="Spider-Man Movie Poster">
+                    </div>
+                    <p class="movie-title">SPIDER-MAN</p>
+                </a>
+
+                <a href="#" class="movie-item">
+                    <div class="poster-container">
+                        <img src="https://via.placeholder.com/300x450/2ecc71/FFFFFF?text=GUARDIANS" alt="Guardians Movie Poster">
+                    </div>
+                    <p class="movie-title">GUARDIANS FOR MERMAID</p>
+                </a>
+
+                <a href="#" class="movie-item">
+                    <div class="poster-container">
+                        <img src="https://via.placeholder.com/300x450/9b59b6/FFFFFF?text=GUARDIANS+VOL+3" alt="Guardians of the Galaxy Vol. 3 Poster">
+                    </div>
+                    <p class="movie-title">GUARDIANS GALAXY VOL. 3</p>
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Book - Showtimes</title>
+    <style>
+        /* General Reset and Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container for the main screen content */
+        .desktop-container {
+            width: 80%;
+            max-width: 1200px;
+            margin-top: 50px;
+            background-color: white; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 0;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            margin-left: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-buttons button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .login-register {
+            background-color: transparent;
+            color: #333;
+            border: 1px solid #ccc !important;
+        }
+
+        .view-movies {
+            background-color: #007bff; 
+            color: white;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            padding: 40px 60px; 
+        }
+
+        /* Movie Info Section */
+        .movie-info-section {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .movie-poster {
+            width: 150px; /* Fixed width for the poster */
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 30px;
+        }
+
+        .movie-details {
+            padding-top: 10px;
+        }
+
+        .movie-details h1 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #555;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+        }
+
+        .movie-details h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+
+        .movie-details p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        /* Showtimes Section */
+        .showtimes-section h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #333; /* Underline effect for the day */
+            padding-bottom: 5px;
+            width: fit-content;
+            text-transform: uppercase;
+        }
+
+        /* Showtimes Grid */
+        .showtimes-grid {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Individual Showtime Card */
+        .showtime-card {
+            flex: 1; /* Distribute space equally */
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+        }
+
+        .showtime-card .time-range {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .showtime-card .cinema-name {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .book-seat-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .book-seat-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="desktop-container">
+
+        <header class="header">
+            <div class="logo">
+                📚 <span class="logo-text">CINEMA BOOK</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="login-register">Login / Register</button>
+                <button class="view-movies">View Movies</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+
+            <div class="movie-info-section">
+                <img class="movie-poster" src="https://via.placeholder.com/150x225/333333/FFFFFF?text=DUNE+2+Poster" alt="Dune: Part Two Poster">
+                <div class="movie-details">
+                    <h1>SHOWTIMES FOR [MOVIE NAME]</h1>
+                    <h2>DUNE: PART TWO</h2>
+                    <p>Language: English, Hindi</p>
+                    <p>Duration: 166 min</p>
+                </div>
+            </div>
+
+            <div class="showtimes-section">
+                <h3>TODAY</h3>
+                <div class="showtimes-grid">
+
+                    <div class="showtime-card">
+                        <div class="time-range">10:00 AM - 12:46 PM</div>
+                        <div class="cinema-name">INOX Forum</div>
+                        <a href="#" class="book-seat-btn">BOOK SEAT</a>
+                    </div>
+
+                    <div class="showtime-card">
+                        <div class="time-range">11:00 AM - 5:16 PM</div>
+                        <div class="cinema-name">PVR Cinemas</div>
+                        <a href="#" class="book-seat-btn">BOOK SEAT</a>
+                    </div>
+
+                    <div class="showtime-card">
+                        <div class="time-range">11:00 AM - 2:46 PM</div>
+                        <div class="cinema-name">PVR Cinemas</div>
+                        <a href="#" class="book-seat-btn">BOOK SEAT</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="showtimes-section">
+                <h3>SATURDAY</h3>
+                <div class="showtimes-grid">
+
+                    <div class="showtime-card">
+                        <div class="time-range">9:00 AM - 1:46 PM</div>
+                        <div class="cinema-name">PVR Cinemas</div>
+                        <a href="#" class="book-seat-btn" style="background-color: #6c757d;">VIEW SLOTS</a> 
+                    </div>
+
+                    <div class="showtime-card">
+                        <div class="time-range">7:00 PM - 5:46 PM</div>
+                        <div class="cinema-name">PVR Cinemas</div>
+                        <a href="#" class="book-seat-btn" style="background-color: #6c757d;">VIEW SLOTS</a>
+                    </div>
+
+                    <div class="showtime-card">
+                        <div class="time-range">6:00 PM - 8:46 PM</div>
+                        <div class="cinema-name">Cineplis</div>
+                        <a href="#" class="book-seat-btn" style="background-color: #6c757d;">VIEW SLOTS</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

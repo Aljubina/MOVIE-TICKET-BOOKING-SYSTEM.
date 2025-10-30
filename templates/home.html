@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinemaBook - The Ultimate Movie Experience</title>
+    <style>
+    /* --- Global Styles & Reset --- */
+    :root {
+        --primary-color: #007bff; /* Blue for buttons */
+        --secondary-color: #6c757d; /* Grey for secondary buttons */
+        --dark-bg: #1a1a1a; /* Very dark background */
+        --text-color: #f8f9fa; /* Light text */
+        --card-bg: #2c2c2c;
+        --font-family: sans-serif;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: var(--font-family);
+        background-color: #f4f4f4; /* Light background for the content area based on the overall design */
+        color: var(--text-color);
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* --- Navigation Bar --- */
+    .navbar {
+        background-color: var(--dark-bg);
+        padding: 15px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .logo-icon {
+        margin-right: 10px;
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        border-radius: 5px;
+        font-weight: 500;
+        margin-left: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .btn-primary {
+        background-color: var(--primary-color);
+        color: #fff;
+        border: 1px solid var(--primary-color);
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-secondary {
+        background-color: transparent;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+    }
+
+    .btn-secondary:hover {
+        background-color: rgba(0, 123, 255, 0.1);
+    }
+
+    /* --- Hero Banner Section --- */
+    .hero-banner {
+        /* Use a placeholder image path here. You must update this! */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/main_banner_placeholder.jpg');
+        background-size: cover;
+        background-position: center;
+        min-height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .banner-content {
+        color: #fff;
+        padding: 20px;
+    }
+
+    .banner-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        font-weight: 300;
+        letter-spacing: 2px;
+    }
+
+    .banner-content p {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+    }
+
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .dot {
+        height: 8px;
+        width: 8px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        margin: 0 5px;
+    }
+
+    .dot.active {
+        background-color: #fff;
+    }
+
+    /* --- Movie List Section --- */
+    .movie-list {
+        padding: 20px 5%;
+        text-align: center;
+        /* This color assumes the body background is light, but the content block is dark to match the image */
+        background-color: var(--dark-bg); 
+    }
+
+    .movie-list h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    .movie-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .movie-card {
+        background-color: var(--card-bg);
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: left;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .movie-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    }
+
+    .movie-poster {
+        width: 100%;
+        height: auto;
+        display: block;
+        aspect-ratio: 2 / 3; /* Standard movie poster ratio */
+        object-fit: cover;
+    }
+
+    .movie-details {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .movie-details p {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    .view-shows-btn {
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .view-shows-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .arrow-icon {
+        font-size: 1rem;
+        line-height: 1;
+    }
+
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 1200px) {
+        .movie-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 850px) {
+        .movie-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 550px) {
+        .navbar {
+            flex-direction: column;
+        }
+        .nav-buttons {
+            margin-top: 10px;
+        }
+        .hero-banner {
+            min-height: 300px;
+        }
+        .banner-content h1 {
+            font-size: 1.8rem;
+        }
+        .movie-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+  </style>
+    </head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">🎬</span>
+            <span class="logo-text">CINEMA BOOK</span>
+        </div>
+        <nav class="nav-buttons">
+            <a href="login.html" class="btn btn-secondary">Login / Register</a>
+            <a href="movie.html" class="btn btn-primary">View Movies</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <div class="banner-content">
+                <h1>WELCOME TO THE ULTIMATE MOVIE EXPERIENCE!</h1>
+                <p>Your journey to the silver screen starts here</p>
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+            </section>
+
+        <section class="movie-list">
+            <h2>CURRENTLY SHOWING</h2>
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <img src="assets/dune_poster.jpg" alt="Dune: Part Two Poster" class="movie-poster">
+                    <div class="movie-details">
+                        <p>DUNE: PART TWO</p>
+                        <a href="shows.html?movie_id=1" class="view-shows-btn">
+                            <span class="arrow-icon">&gt;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <img src="assets/barbie_poster.jpg" alt="Barbie Poster" class="movie-poster">
+                    <div class="movie-details">
+                        <p>BARBIE</p>
+                        <a href="shows.html?movie_id=2" class="view-shows-btn">
+                            <span class="arrow-icon">&gt;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <img src="assets/spiderman_poster.jpg" alt="Spider-Man: No Way Home Poster" class="movie-poster">
+                    <div class="movie-details">
+                        <p>SPIDER-MAN: NO WAY HOME</p>
+                        <a href="shows.html?movie_id=3" class="view-shows-btn">
+                            <span class="arrow-icon">&gt;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <img src="assets/oppenheimer_poster.jpg" alt="Oppenheimer Poster" class="movie-poster">
+                    <div class="movie-details">
+                        <p>OPPENHEIMER</p>
+                        <a href="movies.html" class="view-shows-btn">
+                            <span class="arrow-icon">&gt;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
